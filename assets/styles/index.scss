@@ -1,8 +1,16 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-.col-md-4 {
+.game-box {
   border: 2px solid black;
-  height: 250px;
-  width: 250px;
+  height: 150px;
+  max-width: 150px;
+}
+
+.grid {
+  margin: 0 auto;
+}
+
+.right::after {
+  clear: both;
 }

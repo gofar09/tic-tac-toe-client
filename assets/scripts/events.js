@@ -11,8 +11,8 @@ const boardReset = function (arr) {
 }
 
 let xOrO = true
-console.log(xOrO)
-const turn = function () {
+// console.log(xOrO)
+const changeTurn = function () {
   xOrO = !xOrO
   console.log(xOrO)
 }
@@ -26,6 +26,6 @@ const test = function () {
 }
 
 module.exports = {
-  turn,
+  changeTurn,
   test
 }
