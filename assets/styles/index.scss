@@ -3,14 +3,12 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 .game-box {
   border: 2px solid black;
-  height: 150px;
-  max-width: 150px;
+  height: 220px;
+  max-width: 75%;
+  font-size: 150px;
+  text-align: center;
 }
 
 .grid {
-  margin: 0 auto;
-}
-
-.right::after {
-  clear: both;
+  width: 75vw;
 }
