@@ -9,7 +9,7 @@ const events = require('./assets/scripts/events.js')
 require('./assets/styles/index.scss')
 
 $(() => {
-  $('.game-box').on('click', events.changeTurn)
+  // $('.game-box').on('click', events.changeTurn)
   $('#zero').on('click', events.clickDisplay)
   $('#one').on('click', events.clickDisplay)
   $('#two').on('click', events.clickDisplay)
