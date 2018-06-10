@@ -50,33 +50,35 @@ const boardWrite = () => {
   $('#eight').text(gameLogic[8])
 }
 
-
 // Resets gameLogic and redraws board on new game click
 const boardReset = function () {
   for (let i = 0; i < gameLogic.length; i++) {
     gameLogic[i] = null
     console.log(gameLogic)
     boardWrite()
+    xoSwapper = true
   }
 }
+
 // Win combos
 const wins = [[0, 1, 2], [0, 3, 6], [0, 4, 8], [2, 5, 8], [2, 4, 6], [3, 4, 5], [6, 7, 8], [1, 4, 7]]
 
 // Checks gameLogic array for win combo matches and logs a win message
-const checker = (i) => {
-  const holder = [gameLogic[wins[i][0]], gameLogic[wins[i][1]], gameLogic[wins[i][2]]]
+const checker = (j) => {
+  const holder = [gameLogic[wins[j][0]], gameLogic[wins[j][1]], gameLogic[wins[j][2]]]
   if (holder.every((value) => value === 'X')) {
     return console.log('X Wins!')
   } else if (holder.every((value) => value === 'O')) {
     return console.log('O Wins!')
   }
 }
+
 // Loops through win array, then loops through win condition sub-arrays
 const winCheck = function () {
-  for (let i = 0; i < 7; i++) {
-    // console.log('test')
-    for (let i = 0; i < 2; i++) {
-      wins[i].map(checker)
+  for (let i = 0; i < wins.length; i++) {
+    console.log('test')
+    for (let j = 0; j < 2; j++) {
+      wins[j].map(checker)
       console.log(gameLogic)
     }
   }

@@ -13,6 +13,31 @@
     </head>
     <body>
       <div class="container align-center">
+
+        <h3>Create Account</h3>
+              <form id="sign-up-form">
+                <input name="credentials[email]" placeholder="Email" type="email">
+                <input name="credentials[password]" placeholder="Password" type="password">
+                <input name="credentials[password_confirmation]" placeholder="Confirm Password" type="password">
+                <button type="submit">Sign Up</button>
+              </form>
+
+        <h3>Sign In</h3>
+              <form id="sign-in-form">
+                <input name="credentials[email]" placeholder="Email" type="email">
+                <input name="credentials[password]" placeholder="Password" type="password">
+                <button type="submit">Sign In</button>
+              </form>
+
+        <h3>Change Your Password</h3>
+              <form id="change-password-form">
+                <input name="passwords[old]" placeholder="Old Password" type="password">
+                <input name="passwords[new]" placeholder="New Password" type="password">
+                <button type="submit">Change Password</button>
+              </form>
+
+              <button id="sign-out-button">Sign Out</button >
+
         <div class="row">
           <div class="col-xs-10 col-xs-offset-1">
             <div class="grid">
