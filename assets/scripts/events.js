@@ -1,6 +1,7 @@
 
 const authApi = require('./api')
 const ui = require('./ui')
+const getFormFields = require('../../lib/get-form-fields')
 
 const gameLogic = [null, null, null, null, null, null, null, null, null]
 
@@ -97,8 +98,49 @@ const clickDisplay = function () {
   }
 }
 
+// Auth events below
+
+const onSignUp = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  console.log('data is', data)
+  authApi.signUp(data)
+    .then(ui.signUpSuccess)
+    .catch(ui.signUpError)
+}
+
+const onSignIn = function (event) {
+  event.preventDefault()
+  console.log('Igor says: Form submitted, master.')
+  const data = getFormFields(event.target)
+  console.log('data is', data)
+  authApi.signIn(data)
+    .then(ui.signInSuccess)
+    .catch(ui.signInError)
+}
+
+const onChangePassword = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  console.log('in chng pword data is', data)
+  authApi.changePassword(data)
+    .then(ui.changePasswordSuccess)
+    .catch(ui.changePasswordFail)
+}
+
+const onSignOut = function (event) {
+  event.preventDefault()
+  authApi.signOut()
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFail)
+}
+
 module.exports = {
   changeTurn,
   clickDisplay,
-  boardReset
+  boardReset,
+  onSignUp,
+  onSignIn,
+  onChangePassword,
+  onSignOut
 }

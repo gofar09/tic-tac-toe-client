@@ -13,6 +13,39 @@
     </head>
     <body>
       <div class="container align-center">
+        <nav class="navbar navbar-dark bg-dark">
+            <form class="form-inline">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signUpModal">
+                Sign In
+              </button>
+            </form>
+        </nav>
+
+
+
+        <h1>Tic Tac Toe</h1>
+        <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="signUpModalLabel">Sign In</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="sign-in-form">
+                  <input name="credentials[email]" placeholder="Email" type="email">
+                  <input name="credentials[password]" placeholder="Password" type="password">
+                  <button type="submit">Sign In</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <h3>Create Account</h3>
               <form id="sign-up-form">
@@ -22,12 +55,12 @@
                 <button type="submit">Sign Up</button>
               </form>
 
-        <h3>Sign In</h3>
+        <!-- <h3>Sign In</h3>
               <form id="sign-in-form">
                 <input name="credentials[email]" placeholder="Email" type="email">
                 <input name="credentials[password]" placeholder="Password" type="password">
                 <button type="submit">Sign In</button>
-              </form>
+              </form> -->
 
         <h3>Change Your Password</h3>
               <form id="change-password-form">
