@@ -7,6 +7,8 @@ const gameLogic = [null, null, null, null, null, null, null, null, null]
 
 const ids = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight']
 
+let gameStatus = 'In play'
+
 // Boolean bang to switch x to o and back
 let xoSwapper = true
 const changeTurn = () => {
@@ -51,13 +53,17 @@ const boardWrite = () => {
   $('#eight').text(gameLogic[8])
 }
 
+let moveCounter = 0
+
 // Resets gameLogic and redraws board on new game click
 const boardReset = function () {
   for (let i = 0; i < gameLogic.length; i++) {
     gameLogic[i] = null
     // console.log(gameLogic)
-    boardWrite()
     xoSwapper = true
+    moveCounter = 0
+    gameStatus = 'In play'
+    boardWrite()
   }
 }
 
@@ -65,44 +71,52 @@ const boardReset = function () {
 const wins = [[0, 1, 2], [0, 3, 6], [0, 4, 8], [2, 5, 8], [2, 4, 6], [3, 4, 5], [6, 7, 8], [1, 4, 7]]
 
 // Checks gameLogic array for win combo matches and logs a win message
+
 const checker = (wins) => {
   const holder = [gameLogic[wins[0]], gameLogic[wins[1]], gameLogic[wins[2]]]
   if (holder.every((value) => value === 'X')) {
+    $('#winDisplay').text('X wins!')
+    gameStatus = 'over'
     return console.log('X Wins!')
   } else if (holder.every((value) => value === 'O')) {
+    $('#winDisplay').text('O Wins!')
+    gameStatus = 'over'
     return console.log('O Wins!')
   }
 }
-//   } else if (gameLogic.every()) {}
-// }
-  // console.log('WinIndex is' + winIndex)
-  // const holder = [gameLogic[wins[j][0]], gameLogic[wins[j][1]], gameLogic[wins[j][2]]]
-  // if (holder.every((value) => value === 'X')) {
-  //   return console.log('X Wins!')
-  // } else if (holder.every((value) => value === 'O')) {
-  //   return console.log('O Wins!')
-  // }
 
+const draw = () => {
+  console.log('moveCounter is' + moveCounter)
+  console.log('gameStatus is' + gameStatus)
+  if ((gameStatus !== 'over') && (moveCounter === 9)) {
+    $('#winDisplay').text('Draw Game.')
+    return console.log('Draw Game.')
+  }
+}
 
 // Loops through win array, then loops through win condition sub-arrays
 const winCheck = function () {
-  // for (let i = 0; i < wins.length; i++) {
   for (let j = 0; j < wins.length; j++) {
     checker(wins[j])
-    console.log(gameLogic)
+    draw()
   }
 }
-// }
-
 // Initial function run on board click, checks gameLogic array for previous input then changes
 // turn, initializes board determination, then draws board.
 const clickDisplay = function () {
   if (xoCheck($(this).attr('id')) === null) {
     xoPush($(this).attr('id'))
     boardWrite()
+    $('#winDisplay').text('')
+    moveCounter += 1
     winCheck()
     changeTurn()
-  } else {
+    console.log('move' + moveCounter)
+  } else if (gameStatus === 'In play') {
+    $('#winDisplay').text('That space has already been played.')
+    console.log('Stop that.')
+  } else if (gameStatus === 'over') {
+    $('#winDisplay').text('The game is over. Click New Game to play again.')
     console.log('Stop that.')
   }
 }
