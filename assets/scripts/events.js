@@ -55,7 +55,7 @@ const boardWrite = () => {
 const boardReset = function () {
   for (let i = 0; i < gameLogic.length; i++) {
     gameLogic[i] = null
-    console.log(gameLogic)
+    // console.log(gameLogic)
     boardWrite()
     xoSwapper = true
   }
@@ -65,25 +65,34 @@ const boardReset = function () {
 const wins = [[0, 1, 2], [0, 3, 6], [0, 4, 8], [2, 5, 8], [2, 4, 6], [3, 4, 5], [6, 7, 8], [1, 4, 7]]
 
 // Checks gameLogic array for win combo matches and logs a win message
-const checker = (j) => {
-  const holder = [gameLogic[wins[j][0]], gameLogic[wins[j][1]], gameLogic[wins[j][2]]]
+const checker = (wins) => {
+  const holder = [gameLogic[wins[0]], gameLogic[wins[1]], gameLogic[wins[2]]]
   if (holder.every((value) => value === 'X')) {
     return console.log('X Wins!')
   } else if (holder.every((value) => value === 'O')) {
     return console.log('O Wins!')
   }
 }
+//   } else if (gameLogic.every()) {}
+// }
+  // console.log('WinIndex is' + winIndex)
+  // const holder = [gameLogic[wins[j][0]], gameLogic[wins[j][1]], gameLogic[wins[j][2]]]
+  // if (holder.every((value) => value === 'X')) {
+  //   return console.log('X Wins!')
+  // } else if (holder.every((value) => value === 'O')) {
+  //   return console.log('O Wins!')
+  // }
+
 
 // Loops through win array, then loops through win condition sub-arrays
 const winCheck = function () {
-  for (let i = 0; i < wins.length; i++) {
-    console.log('test')
-    for (let j = 0; j < 2; j++) {
-      wins[j].map(checker)
-      console.log(gameLogic)
-    }
+  // for (let i = 0; i < wins.length; i++) {
+  for (let j = 0; j < wins.length; j++) {
+    checker(wins[j])
+    console.log(gameLogic)
   }
 }
+// }
 
 // Initial function run on board click, checks gameLogic array for previous input then changes
 // turn, initializes board determination, then draws board.
@@ -111,7 +120,6 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
-  console.log('Igor says: Form submitted, master.')
   const data = getFormFields(event.target)
   console.log('data is', data)
   authApi.signIn(data)

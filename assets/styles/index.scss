@@ -9,6 +9,33 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   text-align: center;
 }
 
+.modal-footer {
+  border-top: 0px;
+}
+
+.modal-header {
+  text-align: center;
+}
+
+.closer-button {
+  text-align: right;
+}
+
+h1 {
+  float: left;
+  display: inline;
+}
+
+hr {
+  width: auto;
+  clear: both;
+}
+
+.top-nav {
+  float: right;
+  margin-bottom: 0px;
+}
+
 .grid {
   width: 75vw;
 }
