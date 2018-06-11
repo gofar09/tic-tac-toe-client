@@ -13,6 +13,10 @@ const signInSuccess = function (response) {
   console.log('response is', response)
   store.user = response.user
   $('#sign-in-form').html('You have successfully signed in.')
+  $('#sign-in-button').toggle()
+  $('#change-password-button').toggle()
+  $('#sign-out-button').toggle()
+  $('#register-button').toggle()
 }
 
 const signInError = function (error) {
@@ -24,7 +28,10 @@ const changePasswordSuccess = function (changePasswordResponse) {
 }
 
 const signOutSuccess = function (signOutResponse) {
-  $('#sign-out-button').html('You have successfully signed out.')
+  $('#sign-in-button').toggle()
+  $('#change-password-button').toggle()
+  $('#sign-out-button').toggle()
+  $('#register-button').toggle()
   delete store.user
   console.log(store.user)
 }

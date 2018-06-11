@@ -17,13 +17,13 @@
         <br>
         <nav class="navbar navbar-dark bg-dark top-nav">
             <form class="form-inline">
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signUpModal">
+              <button type="button" class="btn btn-primary" id="register-button" data-toggle="modal" data-target="#signUpModal">
                 Register
               </button>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signInModal">
+              <button type="button" class="btn btn-primary" id="sign-in-button" data-toggle="modal" data-target="#signInModal">
                 Sign In
               </button>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#changePasswordModal">
+              <button type="button" class="btn btn-primary" id="change-password-button" data-toggle="modal" data-target="#changePasswordModal">
                 Change Password
               </button>
               <button class="btn btn-primary" id="sign-out-button">Sign Out</button>
@@ -82,7 +82,7 @@
                 <form id="sign-in-form">
                   <input name="credentials[email]" placeholder="Email" type="email">
                   <input name="credentials[password]" placeholder="Password" type="password">
-                  <button type="submit">Sign In</button>
+                  <button type="submit" class="signInButton">Sign In</button>
                 </form>
               </div>
               <div class="modal-footer">

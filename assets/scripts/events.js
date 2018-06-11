@@ -104,7 +104,10 @@ const winCheck = function () {
 // Initial function run on board click, checks gameLogic array for previous input then changes
 // turn, initializes board determination, then draws board.
 const clickDisplay = function () {
-  if (xoCheck($(this).attr('id')) === null) {
+  if (gameStatus === 'over') {
+    $('#winDisplay').text('The game is over. Click New Game to play again.')
+    console.log('Stop that.')
+  } else if (xoCheck($(this).attr('id')) === null) {
     xoPush($(this).attr('id'))
     boardWrite()
     $('#winDisplay').text('')
@@ -114,9 +117,6 @@ const clickDisplay = function () {
     console.log('move' + moveCounter)
   } else if (gameStatus === 'In play') {
     $('#winDisplay').text('That space has already been played.')
-    console.log('Stop that.')
-  } else if (gameStatus === 'over') {
-    $('#winDisplay').text('The game is over. Click New Game to play again.')
     console.log('Stop that.')
   }
 }
