@@ -33,7 +33,17 @@ const signOutSuccess = function (signOutResponse) {
   $('#sign-out-button').toggle()
   $('#register-button').toggle()
   delete store.user
+  delete store.game
   console.log(store.user)
+}
+
+const createGameSuccess = function (createGameResponse) {
+  console.log('CreateGameResponseis', createGameResponse)
+  store.game = createGameResponse.game
+}
+
+const createGameFail = function (error) {
+  console.log('Create game error is' + error)
 }
 
 module.exports = {
@@ -42,5 +52,7 @@ module.exports = {
   signInSuccess,
   signInError,
   changePasswordSuccess,
-  signOutSuccess
+  signOutSuccess,
+  createGameSuccess,
+  createGameFail
 }

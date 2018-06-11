@@ -14,6 +14,8 @@ $(() => {
   $('#change-password-form').on('submit', events.onChangePassword)
   $('#sign-out-button').click(events.onSignOut)
 
+  $('.create-game').on('click', events.onCreateGame)
+
   $('#zero').on('click', events.clickDisplay)
   $('#one').on('click', events.clickDisplay)
   $('#two').on('click', events.clickDisplay)

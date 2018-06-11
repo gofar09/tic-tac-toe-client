@@ -63,6 +63,7 @@ const boardReset = function () {
     xoSwapper = true
     moveCounter = 0
     gameStatus = 'In play'
+    $('#winDisplay').text('')
     boardWrite()
   }
 }
@@ -157,6 +158,13 @@ const onSignOut = function (event) {
     .catch(ui.signOutFail)
 }
 
+const onCreateGame = function (event) {
+  event.preventDefault()
+  authApi.createGame()
+    .then(ui.createGameSuccess)
+    .catch(ui.createGameFail)
+}
+
 module.exports = {
   changeTurn,
   clickDisplay,
@@ -164,5 +172,6 @@ module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
-  onSignOut
+  onSignOut,
+  onCreateGame
 }
