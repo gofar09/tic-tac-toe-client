@@ -20,6 +20,7 @@ const signInSuccess = function (response) {
 }
 
 const signInError = function (error) {
+  $('.failedSignIn').html('Your username or password is incorrect.')
   console.log('Error in sign in is', error)
 }
 
@@ -46,6 +47,15 @@ const createGameFail = function (error) {
   console.log('Create game error is' + error)
 }
 
+const updateGameSuccess = function (updateGameResponse) {
+  console.log('UpdateGameResponseis', updateGameResponse)
+  store.game = updateGameResponse.game
+}
+
+const updateGameFail = function (error) {
+  console.log('Create game error is' + error)
+}
+
 module.exports = {
   signUpSuccess,
   signUpError,
@@ -54,5 +64,7 @@ module.exports = {
   changePasswordSuccess,
   signOutSuccess,
   createGameSuccess,
-  createGameFail
+  createGameFail,
+  updateGameSuccess,
+  updateGameFail
 }

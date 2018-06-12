@@ -1,6 +1,5 @@
 
 const store = require('./store')
-
 const config = require('./config')
 
 const signUp = function (data) {
@@ -52,10 +51,22 @@ const createGame = function () {
   })
 }
 
+const updateGame = function (data) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + 'games/' + store.game.id,
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
-  createGame
+  createGame,
+  updateGame
 }

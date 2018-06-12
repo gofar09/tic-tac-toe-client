@@ -27,4 +27,5 @@ $(() => {
   $('#eight').on('click', events.clickDisplay)
 
   $('.new-game').on('click', events.boardReset)
+  $('.new-game').on('click', events.onCreateGame)
 })

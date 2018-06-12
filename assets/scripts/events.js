@@ -7,8 +7,9 @@ const gameLogic = [null, null, null, null, null, null, null, null, null]
 
 const ids = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight']
 
-let gameStatus = 'In play'
+let over = false
 
+let indexExport = null
 // Boolean bang to switch x to o and back
 let xoSwapper = true
 const changeTurn = () => {
@@ -16,12 +17,15 @@ const changeTurn = () => {
   // console.log('swapper is' + xoSwapper)
 }
 
+let xoExport = 0
+
 // Checks swapper to see if x or o should be displayed
 const which = () => {
   if (xoSwapper === true) {
-    console.log(gameLogic)
+    xoExport = 'x'
     return 'X'
   } else {
+    xoExport = 'o'
     return 'O'
   }
 }
@@ -30,8 +34,8 @@ const which = () => {
 // by look at id of clicked div, checking it against id array and getting the index,
 // then uses that to indicate the id in gameLogic index which will receive x or o
 const xoPush = (id) => {
-  const holder = ids.indexOf(id)
-  gameLogic[Number(holder)] = which()
+  indexExport = ids.indexOf(id)
+  gameLogic[Number(indexExport)] = which()
 }
 
 // Function for checking if square was already clicked
@@ -62,7 +66,7 @@ const boardReset = function () {
     // console.log(gameLogic)
     xoSwapper = true
     moveCounter = 0
-    gameStatus = 'In play'
+    over = false
     $('#winDisplay').text('')
     boardWrite()
   }
@@ -72,26 +76,21 @@ const boardReset = function () {
 const wins = [[0, 1, 2], [0, 3, 6], [0, 4, 8], [2, 5, 8], [2, 4, 6], [3, 4, 5], [6, 7, 8], [1, 4, 7]]
 
 // Checks gameLogic array for win combo matches and logs a win message
-
 const checker = (wins) => {
   const holder = [gameLogic[wins[0]], gameLogic[wins[1]], gameLogic[wins[2]]]
   if (holder.every((value) => value === 'X')) {
     $('#winDisplay').text('X wins!')
-    gameStatus = 'over'
-    return console.log('X Wins!')
+    over = true
   } else if (holder.every((value) => value === 'O')) {
     $('#winDisplay').text('O Wins!')
-    gameStatus = 'over'
-    return console.log('O Wins!')
+    over = true
   }
 }
 
+// Determines if games are a draw
 const draw = () => {
-  console.log('moveCounter is' + moveCounter)
-  console.log('gameStatus is' + gameStatus)
-  if ((gameStatus !== 'over') && (moveCounter === 9)) {
+  if ((over !== true) && (moveCounter === 9)) {
     $('#winDisplay').text('Draw Game.')
-    return console.log('Draw Game.')
   }
 }
 
@@ -102,28 +101,26 @@ const winCheck = function () {
     draw()
   }
 }
-// Initial function run on board click, checks gameLogic array for previous input then changes
-// turn, initializes board determination, then draws board.
+// Initial function run on board click, checks if game is over and if so prevents
+// input. Then, checks gameLogic array for previous input then changes
+// turn, initializes board determination, and draws board.
 const clickDisplay = function () {
-  if (gameStatus === 'over') {
+  if (over === true) {
     $('#winDisplay').text('The game is over. Click New Game to play again.')
-    console.log('Stop that.')
   } else if (xoCheck($(this).attr('id')) === null) {
     xoPush($(this).attr('id'))
     boardWrite()
     $('#winDisplay').text('')
     moveCounter += 1
     winCheck()
+    onUpdateGame()
     changeTurn()
-    console.log('move' + moveCounter)
-  } else if (gameStatus === 'In play') {
+  } else if (over === false) {
     $('#winDisplay').text('That space has already been played.')
-    console.log('Stop that.')
   }
 }
 
-// Auth events below
-
+// API events below
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -145,7 +142,6 @@ const onSignIn = function (event) {
 const onChangePassword = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log('in chng pword data is', data)
   authApi.changePassword(data)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFail)
@@ -165,6 +161,21 @@ const onCreateGame = function (event) {
     .catch(ui.createGameFail)
 }
 
+const onUpdateGame = function () {
+  const gameData = {
+    'game': {
+      'cell': {
+        'index': indexExport,
+        'value': xoExport
+      },
+      'over': over
+    }
+  }
+  authApi.updateGame(gameData)
+    .then(ui.updateGameSuccess)
+    .catch(ui.createGameFail)
+}
+
 module.exports = {
   changeTurn,
   clickDisplay,
@@ -173,5 +184,9 @@ module.exports = {
   onSignIn,
   onChangePassword,
   onSignOut,
-  onCreateGame
+  onCreateGame,
+  onUpdateGame,
+  over,
+  which,
+  indexExport
 }
