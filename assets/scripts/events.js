@@ -120,6 +120,11 @@ const clickDisplay = function () {
   }
 }
 
+const secret = function () {
+  console.log('hello')
+$('.hide-game').fadeIn()
+}
+
 // API events below
 const onSignUp = function (event) {
   event.preventDefault()
@@ -137,7 +142,6 @@ const onSignIn = function (event) {
   authApi.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInError)
-  authApi.getGames()
 }
 
 const onChangePassword = function (event) {
@@ -196,5 +200,6 @@ module.exports = {
   over,
   which,
   indexExport,
-  onGetGames
+  onGetGames,
+  secret
 }

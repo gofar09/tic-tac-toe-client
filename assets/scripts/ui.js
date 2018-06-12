@@ -1,5 +1,5 @@
 const store = require('./store')
-const authApi = require('./api')
+// const authApi = require('./api')
 
 const signUpSuccess = function (signUpResponse) {
   console.log('signUpResponse is', signUpResponse)
@@ -62,7 +62,6 @@ const updateGameFail = function (error) {
 }
 
 const getGamesSuccess = function (getGamesResponse) {
-  console.log(getGamesResponse)
   store.playedGames = getGamesResponse
   console.log('Store finish is ', store.playedGames)
   $('.gamesCompleted').html('You have played ' + store.playedGames.games.length + ' games.')

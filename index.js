@@ -19,6 +19,7 @@ $(() => {
 
   $('.create-game').on('click', events.onCreateGame)
   $('.create-game').on('click', events.onGetGames)
+  $('.create-game').on('click', events.secret)
 
   $('#zero').on('click', events.clickDisplay)
   $('#one').on('click', events.clickDisplay)
