@@ -10,11 +10,15 @@ require('./assets/styles/index.scss')
 
 $(() => {
   $('#sign-up-form').on('submit', events.onSignUp)
+
   $('#sign-in-form').on('submit', events.onSignIn)
+
   $('#change-password-form').on('submit', events.onChangePassword)
+
   $('#sign-out-button').click(events.onSignOut)
 
   $('.create-game').on('click', events.onCreateGame)
+  $('.create-game').on('click', events.onGetGames)
 
   $('#zero').on('click', events.clickDisplay)
   $('#one').on('click', events.clickDisplay)
@@ -28,4 +32,5 @@ $(() => {
 
   $('.new-game').on('click', events.boardReset)
   $('.new-game').on('click', events.onCreateGame)
+  $('.new-game').on('click', events.onGetGames)
 })

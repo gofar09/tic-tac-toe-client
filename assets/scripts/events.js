@@ -137,6 +137,7 @@ const onSignIn = function (event) {
   authApi.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInError)
+  authApi.getGames()
 }
 
 const onChangePassword = function (event) {
@@ -176,6 +177,12 @@ const onUpdateGame = function () {
     .catch(ui.createGameFail)
 }
 
+const onGetGames = function () {
+  authApi.getGames()
+    .then(ui.getGamesSuccess)
+    .catch(ui.getGamesFail)
+}
+
 module.exports = {
   changeTurn,
   clickDisplay,
@@ -188,5 +195,6 @@ module.exports = {
   onUpdateGame,
   over,
   which,
-  indexExport
+  indexExport,
+  onGetGames
 }

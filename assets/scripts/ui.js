@@ -1,4 +1,5 @@
 const store = require('./store')
+const authApi = require('./api')
 
 const signUpSuccess = function (signUpResponse) {
   console.log('signUpResponse is', signUpResponse)
@@ -17,6 +18,7 @@ const signInSuccess = function (response) {
   $('#change-password-button').toggle()
   $('#sign-out-button').toggle()
   $('#register-button').toggle()
+  $('.emailDisplay').html('Signed in as: ' + store.user.email)
 }
 
 const signInError = function (error) {
@@ -33,8 +35,11 @@ const signOutSuccess = function (signOutResponse) {
   $('#change-password-button').toggle()
   $('#sign-out-button').toggle()
   $('#register-button').toggle()
+  $('.emailDisplay').html('')
+  $('.gamesCompleted').html('')
   delete store.user
   delete store.game
+  delete store.finishedGames
   console.log(store.user)
 }
 
@@ -56,6 +61,17 @@ const updateGameFail = function (error) {
   console.log('Create game error is' + error)
 }
 
+const getGamesSuccess = function (getGamesResponse) {
+  console.log(getGamesResponse)
+  store.playedGames = getGamesResponse
+  console.log('Store finish is ', store.playedGames)
+  $('.gamesCompleted').html('You have played ' + store.playedGames.games.length + ' games.')
+}
+
+const getGamesFail = function (error) {
+  console.log('get game error is', error)
+}
+
 module.exports = {
   signUpSuccess,
   signUpError,
@@ -66,5 +82,7 @@ module.exports = {
   createGameSuccess,
   createGameFail,
   updateGameSuccess,
-  updateGameFail
+  updateGameFail,
+  getGamesSuccess,
+  getGamesFail
 }
