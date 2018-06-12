@@ -47,3 +47,28 @@ hr {
 #change-password-button {
   display: none;
 }
+
+.name {
+  color: #black;
+  font-weight: 700;
+}
+
+footer {
+  text-transform: uppercase;
+  padding: 0px 20px;
+  background-color: #ffffff;
+  font-color: #000000;
+  font-size: 14px;
+  letter-spacing: .08em;
+  font-weight: 500;
+}
+
+.copyright {
+  // float:left;
+  font-family: "Raleway", sans-serif;
+}
+
+.message {
+  float: left;
+  font-family: "Raleway", sans-serif;
+}
