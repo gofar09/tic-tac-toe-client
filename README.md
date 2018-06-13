@@ -18,6 +18,19 @@ gitHub
 Process:
 My initial wireframes can be founds here: https://imgur.com/a/wn5XWBD
 
+These were my first user stories:
+  -As a user, I can make an account with my email and a password.
+
+  -As a user, I can have a username for my account.
+
+  -As a user, I can sign in to my account.
+
+  -As a user, I can play tic tac toe.
+
+  -As a user, I can play tic tac toe against another use on another machine
+
+  -As a user, I can see the email/username of my opponent
+
 I began the process by building a very basic grid of 9 squares as a placeholder.
 I wanted to start on the game logic first because it was what I believed would
 be the most difficult aspect of the project. We had practiced api work, some
