@@ -59,6 +59,13 @@ and find different ways of using the database of games available. That was one
 area where I feel I could have greatly improved. Overall though, I'm extremely
 happy with my final product.
 
+Lastly, a list of some issues I want to work on going forward are:
+  -Button placement, sizing, colors.
+  -Better feedback message displays
+  -Enhanced API linkage
+  -Dual sign Ins 
+  -Multi-device, multi-player
+
 Thanks for checking it out, I hope you find it interesting!
 
 -Gordon
