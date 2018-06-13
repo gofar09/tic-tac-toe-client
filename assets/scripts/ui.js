@@ -6,7 +6,7 @@ const signUpSuccess = function (signUpResponse) {
 }
 
 const signUpError = function () {
-
+  $('.failedSignUp').html('Email unavailable.')
 }
 
 const signInSuccess = function (response) {
