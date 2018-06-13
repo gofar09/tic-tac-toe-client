@@ -1,74 +1,51 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-# browser-template
+Hello friends and welcome to gofar09's tic-tac-toe-client README.md.
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
+Background:
+This project is the first of several for General Assemlby's Web Development
+Immersive course. Our goal was to build from nothing a working tic tac toe
+app housed within a github delpoyed site and fulfill various requirements. This
+was my first ever coding project and all of this was learned during the previous
+four weeks.
 
-## Installation
+Technology used:
+HTML 5
+JavaScript
+jQuery
+CSS
+gitHub
 
-1. [Download](../../archive/master.zip) this template.
-1. Move to the `wdi/projects` directory, then unzip the template directory with
-    `unzip /Users/<user-name>/Downloads/browser-template-master.zip`.
-1. Rename the template directory from `browser-template-master` to
-    `<project-name>-client`.
-1. Empty [`README.md`](README.md) and fill with your own content.
-1. Replace all instances of `ga-wdi-boston.browser-template` with the name of
-    your project.
-1. Move into the new project and `git init`.
-1. Add all of the files in your project with the command `git add --all`.
-      - **Note: This is the only time you should run this command!**
-1. Commit all of your files with the command `git commit`.
-      - Your commit title should read `Initial commit`.
-1. Install dependencies with `npm install`.
-1. Create a new repository on [github.com](https://github.com),
-    _not GitHub Enterprise_.
-1. Name the new repository with the same name used on Step 3.
+Process:
+My initial wireframes can be founds here: https://imgur.com/a/wn5XWBD
 
-## Structure
+I began the process by building a very basic grid of 9 squares as a placeholder.
+I wanted to start on the game logic first because it was what I believed would
+be the most difficult aspect of the project. We had practiced api work, some
+styling, and JS functions, but had never done anything nearly as complicated as
+the game engine. My primary goal for most of the project was simply to execute
+simply but excellently and delivery a MVP that satisfied the basic requirements
+due to my inexperience as a developer.
 
-Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
-The "manifest" or entry-point is
-[`assets/scripts/index.js`](assets/scripts/index.js). In general, only
-application initialization goes in this file. It's normal for developers to
-start putting all code in this file, but encourage them to break out different
-responsibilities and use the `require` syntax put references where they're
-needed.
+While some aspects of the engine design were less difficult than I had
+anticipated, others were relatively simple. I thought my solution to determining
+whether it was time to display an X or O, by checking the value of a Boolean
+variable then banging it to switch it for next turn was a simple and effective
+solution. On the other hand I struggled quite a bit with designing proper loops
+to check my array of win states, and particularly struggled with showing draw
+states.
 
-Developers should set `apiUrls.production` and `apiUrls.development` in
-[`config/environment.js`](config/environment.js).  With
-`apiUrls` set, developers may rely on `apiUrl` as the base for API
-URLs.
+My styling is probably where I went most of the box. I was unhappy with the
+limited options for making a tic tac toe site interesting and eye-catching,
+so I decided to make a site that looked as little like a game site as possible.
+I wanted to try and emulate the "hero image" style I had heard mentioned about,
+and my goal was to completely disguise my site as something completely
+unrelated. Due to time constraints I wasn't able to achieve this effect as
+fully as I would have wanted. If I come back to this project, that would be a
+goal of mine. Additionally, I'd like to explore the API connections more deeply
+and find different ways of using the database of games available. That was one
+area where I feel I could have greatly improved. Overall though, I'm extremely
+happy with my final product.
 
-Developers should store styles in [`assets/styles`](assets/styles) and load them
-from [`assets/styles/index.scss`](assets/styles/index.scss). Bootstrap version 3 is
-included in this template.
+Thanks for checking it out, I hope you find it interesting!
 
-Developers should use [getFormFields](get-form-fields.md) to retrieve form data
-to send to an API.
-
-To deploy a browser-template based SPA, run `grunt deploy`.
-
-## Tasks
-
-Developers should run these often!
-
-- `grunt nag` or just `grunt`: runs code quality analysis tools on your code
-    and complains
-- `grunt make-standard`: reformats all your code in the JavaScript Standard Style
-- `grunt <server|serve|s>`: generates bundles, watches, and livereloads
-- `grunt test`: runs any automated tests, depends on `grunt build`
-- `grunt build`: place bundled styles and scripts where `index.html` can find
-    them
-
-## Additional Resources
-
-- [Modern Javascript Explained for Dinosaurs](https://medium.com/@peterxjang/modern-javascript-explained-for-dinosaurs-f695e9747b70)
-- [Making Sense of Front End Build Tools](https://medium.freecodecamp.org/making-sense-of-front-end-build-tools-3a1b3a87043b)
-
-## [License](LICENSE)
-
-1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-1. All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+-Gordon
