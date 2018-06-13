@@ -14,7 +14,6 @@ let indexExport = null
 let xoSwapper = true
 const changeTurn = () => {
   xoSwapper = !xoSwapper
-  // console.log('swapper is' + xoSwapper)
 }
 
 let xoExport = 0
@@ -63,7 +62,6 @@ let moveCounter = 0
 const boardReset = function () {
   for (let i = 0; i < gameLogic.length; i++) {
     gameLogic[i] = null
-    // console.log(gameLogic)
     xoSwapper = true
     moveCounter = 0
     over = false
@@ -121,15 +119,14 @@ const clickDisplay = function () {
 }
 
 const secret = function () {
-  console.log('hello')
-$('.hide-game').fadeIn()
+  $('.button-height').toggle()
+  $('.hide-game').delay(700).fadeIn()
 }
 
 // API events below
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log('data is', data)
   authApi.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpError)
@@ -138,7 +135,6 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log('data is', data)
   authApi.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInError)
@@ -149,7 +145,7 @@ const onChangePassword = function (event) {
   const data = getFormFields(event.target)
   authApi.changePassword(data)
     .then(ui.changePasswordSuccess)
-    .catch(ui.changePasswordFail)
+    .catch(ui.changePasswordError)
 }
 
 const onSignOut = function (event) {

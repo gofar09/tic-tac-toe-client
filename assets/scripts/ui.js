@@ -2,32 +2,36 @@ const store = require('./store')
 // const authApi = require('./api')
 
 const signUpSuccess = function (signUpResponse) {
-  console.log('signUpResponse is', signUpResponse)
   $('#sign-up-form').html('You have successfully registered.')
 }
 
-const signUpError = function (error) {
-  console.log('Error in sign up is', error)
+const signUpError = function () {
+
 }
 
 const signInSuccess = function (response) {
-  console.log('response is', response)
   store.user = response.user
   $('#sign-in-form').html('You have successfully signed in.')
   $('#sign-in-button').toggle()
   $('#change-password-button').toggle()
   $('#sign-out-button').toggle()
   $('#register-button').toggle()
+  $('.button-height').delay(2000).fadeIn()
   $('.emailDisplay').html('Signed in as: ' + store.user.email)
 }
 
-const signInError = function (error) {
-  $('.failedSignIn').html('Your username or password is incorrect.')
-  console.log('Error in sign in is', error)
+const signInError = function () {
+  $('.failedSignIn').html('Username or password is incorrect.')
+  $('#sign-in-form')[0].reset()
 }
 
 const changePasswordSuccess = function (changePasswordResponse) {
   $('#change-password-form').html('You have successfully changed your password.')
+}
+
+const changePasswordError = function () {
+  $('.failedChangePassword').html('Password is incorrect.')
+  $('#change-password-form')[0].reset()
 }
 
 const signOutSuccess = function (signOutResponse) {
@@ -40,35 +44,29 @@ const signOutSuccess = function (signOutResponse) {
   delete store.user
   delete store.game
   delete store.finishedGames
-  console.log(store.user)
 }
 
 const createGameSuccess = function (createGameResponse) {
-  console.log('CreateGameResponseis', createGameResponse)
   store.game = createGameResponse.game
 }
 
-const createGameFail = function (error) {
-  console.log('Create game error is' + error)
+const createGameFail = function () {
+
 }
 
 const updateGameSuccess = function (updateGameResponse) {
-  console.log('UpdateGameResponseis', updateGameResponse)
   store.game = updateGameResponse.game
 }
 
-const updateGameFail = function (error) {
-  console.log('Create game error is' + error)
+const updateGameFail = function () {
 }
 
 const getGamesSuccess = function (getGamesResponse) {
   store.playedGames = getGamesResponse
-  console.log('Store finish is ', store.playedGames)
   $('.gamesCompleted').html('You have played ' + store.playedGames.games.length + ' games.')
 }
 
-const getGamesFail = function (error) {
-  console.log('get game error is', error)
+const getGamesFail = function () {
 }
 
 module.exports = {
@@ -83,5 +81,6 @@ module.exports = {
   updateGameSuccess,
   updateGameFail,
   getGamesSuccess,
-  getGamesFail
+  getGamesFail,
+  changePasswordError
 }
