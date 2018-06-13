@@ -36,7 +36,7 @@ I wanted to start on the game logic first because it was what I believed would
 be the most difficult aspect of the project. We had practiced api work, some
 styling, and JS functions, but had never done anything nearly as complicated as
 the game engine. My primary goal for most of the project was simply to execute
-simply but excellently and delivery a MVP that satisfied the basic requirements
+simply but excellently and deliver an MVP that satisfied the basic requirements
 due to my inexperience as a developer.
 
 While some aspects of the engine design were less difficult than I had
@@ -63,7 +63,7 @@ Lastly, a list of some issues I want to work on going forward are:
   -Button placement, sizing, colors.
   -Better feedback message displays
   -Enhanced API linkage
-  -Dual sign Ins 
+  -Dual sign Ins
   -Multi-device, multi-player
 
 Thanks for checking it out, I hope you find it interesting!
