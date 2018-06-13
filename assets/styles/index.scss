@@ -1,2 +1,153 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+body {
+  background-image: url('./img/bamboo-bamboo-whisk-board-461428.jpg');
+  background-size: cover;
+  // overflow: auto;
+}
+
+.button-height {
+  margin-top: 300px;
+  width: 200px;
+  display: none;
+}
+
+#winDisplay {
+  color: #ffffff;
+}
+
+.new-game {
+  width: 100px;
+}
+
+.widen {
+  width: 100px;
+}
+
+.createGame {
+  opacity: 0.8;
+}
+
+.top-bar {
+  margin-top: 0px;
+  background-color: #000000;
+  opacity: 0.8;
+}
+
+.game-box {
+  border: 2px solid black;
+  height: 205px;
+  max-width: 65%;
+  font-size: 150px;
+  text-align: center;
+  background-color: rgba(87, 72, 53, 0.8);
+  color: #000000
+}
+
+.emailDisplay {
+  color: #FFFFFF;
+  margin-bottom: 3px;
+}
+
+.gamesCompleted {
+  color: #FFFFFF;
+  margin-bottom: 0px;
+}
+
+.hide-game {
+  display: none;
+}
+
+.modal-footer {
+  border-top: 0px;
+}
+
+.modal-header {
+  text-align: center;
+}
+
+.closer-button {
+  text-align: right;
+}
+
+h1 {
+  float: left;
+  display: inline;
+  color: #FFFFFF;
+  margin-top: 20px;
+}
+
+.placeholder-div {
+  height: 650px;
+}
+
+hr {
+  width: auto;
+  clear: both;
+}
+
+.top-nav {
+  float: right;
+  margin-bottom: 0px;
+}
+
+.grid {
+  width: 75vw;
+}
+
+#sign-out-button {
+  display: none;
+}
+
+#change-password-button {
+  display: none;
+}
+
+.top-spacer {
+  height: 30px;
+  margin-top: 0px;
+}
+
+.name {
+  color: #black;
+  font-weight: 690;
+}
+
+.fake-footer {
+  text-transform: uppercase;
+  padding: 0px 20px;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 14px;
+  letter-spacing: .08em;
+  font-weight: 500;
+  opacity: 0.8;
+  height: 60px;
+  margin-bottom: auto;
+}
+
+.copyright {
+  font-family: "Raleway", sans-serif;
+}
+
+.message {
+  float: left;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
