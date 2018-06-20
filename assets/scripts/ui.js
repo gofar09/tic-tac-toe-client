@@ -42,6 +42,11 @@ const signOutSuccess = function (signOutResponse) {
   $('#register-button').toggle()
   $('.emailDisplay').html('')
   $('.gamesCompleted').html('')
+  $('.button-height').toggle()
+  $('.hide-game').fadeOut()
+  $('.button-height').toggle()
+  $('#winDisplay').text('')
+  $('.failedSignIn').html('')
   delete store.user
   delete store.game
   delete store.finishedGames
