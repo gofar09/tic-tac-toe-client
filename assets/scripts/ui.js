@@ -44,7 +44,8 @@ const signOutSuccess = function (signOutResponse) {
   $('.gamesCompleted').html('')
   $('.button-height').toggle()
   $('.hide-game').fadeOut()
-  $('.button-height').toggle()
+  // CHANGES HERE
+  $('.button-height').hide()
   $('#winDisplay').text('')
   $('.failedSignIn').html('')
   delete store.user
