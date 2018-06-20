@@ -121,6 +121,7 @@ const clickDisplay = function () {
 const secret = function () {
   $('.button-height').toggle()
   $('.hide-game').delay(700).fadeIn()
+  boardReset()
 }
 
 // API events below
