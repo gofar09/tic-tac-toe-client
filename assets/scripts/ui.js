@@ -2,7 +2,7 @@ const store = require('./store')
 // const authApi = require('./api')
 
 const signUpSuccess = function (signUpResponse) {
-  $('#sign-up-form').html('You have successfully registered.')
+  $('.failedSignUp').html('You have successfully registered.')
 }
 
 const signUpError = function () {
@@ -11,13 +11,14 @@ const signUpError = function () {
 
 const signInSuccess = function (response) {
   store.user = response.user
-  $('#sign-in-form').html('You have successfully signed in.')
+  $('.failedSignIn').html('You have successfully signed in.')
   $('#sign-in-button').toggle()
   $('#change-password-button').toggle()
   $('#sign-out-button').toggle()
   $('#register-button').toggle()
   $('.button-height').delay(2000).fadeIn()
   $('.emailDisplay').html('Signed in as: ' + store.user.email)
+  $('#sign-in-form')[0].reset()
 }
 
 const signInError = function () {
