@@ -27,7 +27,8 @@ const signInError = function () {
 }
 
 const changePasswordSuccess = function (changePasswordResponse) {
-  $('#change-password-form').html('You have successfully changed your password.')
+  $('.failedChangePassword').html('You have successfully changed your password.')
+  $('#change-password-form')[0].reset()
 }
 
 const changePasswordError = function () {
@@ -48,6 +49,7 @@ const signOutSuccess = function (signOutResponse) {
   $('.button-height').hide()
   $('#winDisplay').text('')
   $('.failedSignIn').html('')
+  $('.failedChangePassword').html('')
   delete store.user
   delete store.game
   delete store.finishedGames
