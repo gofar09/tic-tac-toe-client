@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Bliss</title>
+      <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <div class="top-bar col-xs-12 col-md-12 col-lg-12">
+      <div class="container align-center">
+        <h1>Bliss</h1>
+        <br>
+
+        <nav class="navbar navbar-dark bg-dark top-nav">
+            <form class="form-inline">
+              <button type="button" class="btn btn-primary" id="register-button" data-toggle="modal" data-target="#signUpModal">
+                Register
+              </button>
+              <button type="button" class="btn btn-primary" id="sign-in-button" data-toggle="modal" data-target="#signInModal">
+                Sign In
+              </button>
+              <button type="button" class="btn btn-primary" id="change-password-button" data-toggle="modal" data-target="#changePasswordModal">
+                Change Password
+              </button>
+              <button class="btn btn-primary" id="sign-out-button">Sign Out</button>
+              <br>
+              <!--  Username display-->
+                      <p class="emailDisplay"></p>
+              <!-- Games played display -->
+                      <p class="gamesCompleted"></p>
+            </form>
+        </nav>
+      </div>
+    </div>
+<br>
+<!--  Sign up modal-->
+        <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="col-xs-2 col-md-2 col-lg-2 col-md-offset-4 col-md-offset-4 col-xs-offset-4">
+                <h3 class="modal-title" id="signUpModalLabel">Register</h3>
+              </div>
+              </div>
+              <div class="modal-body">
+                <div class="col-xs-2 col-md-2 col-lg-2 col-md-offset-4 col-md-offset-4 col-xs-offset-4">
+                <form id="sign-up-form">
+                  <input name="credentials[email]" placeholder="Email" type="email">
+                  <br>
+                  <input name="credentials[password]" placeholder="Password" type="password">
+                  <br>
+                  <input name="credentials[password_confirmation]" placeholder="Confirm Password" type="password">
+                  <br>
+                  <br>
+                  <button type="submit">Register</button>
+                  <br>
+                  <p class="failedSignUp"></p>
+                </form>
+              </div>
+              <div class="col-xs-2 col-md-2 col-lg-2 col-md-offset-10 col-md-offset-10 col-xs-offset-10">
+              <button type="button" class="btn btn-primary align-right sign-up-close-button" data-dismiss="modal">Close</button>
+            </div>
+              </div>
+              <div class="modal-footer">
+              </div>
+            </div>
+          </div>
+        </div>
+
+<!--  Sign in modal-->
+        <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="signInModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="col-xs-4 col-md-4 col-lg-4 col-md-offset-4 col-md-offset-4 col-xs-offset-4">
+                <h3 class="modal-title" id="signInModalLabel">Sign In</h3>
+              </div>
+            </div>
+              <div class="modal-body">
+                <form id="sign-in-form">
+                  <input class="inputReset" name="credentials[email]" placeholder="Email" type="email">
+                  <input class="inputReset" name="credentials[password]" placeholder="Password" type="password">
+                  <button type="submit" class="signInButton">Sign In</button>
+                  <br>
+                </form>
+                <p class="failedSignIn"></p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary signInClose" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<!--Change Password Modal  -->
+        <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="col-xs-6 col-md-6 col-lg-6 col-md-offset-3 col-md-offset-3 col-xs-offset-3">
+                <h3 class="modal-title" id="changePasswordModalLabel">Change Password</h3>
+              </div>
+            </div>
+              <div class="modal-body">
+                      <form id="change-password-form">
+                        <input class="inputReset" name="passwords[old]" placeholder="Old Password" type="password">
+                        <input class="inputReset" name="passwords[new]" placeholder="New Password" type="password">
+                        <button type="submit">Change Password</button>
+                        <br>
+                        <p class="failedChangePassword"></p>
+                      </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <div class="top-spacer col-xs-2 col-md-2 col-lg-2 col-md-offset-10 col-md-offset-10 col-xs-offset-10">  <h3 id="winDisplay"></h3>
+        </div>
+<div class="col-xs-12 col-md-12 col-lg-12 placeholder-div">
+        <div class="button-holder col-xs-2 col-md-2 col-lg-2 col-md-offset-5 col-md-offset-5 col-xs-offset-5">
+          <div class="col-xs-2 col-md-2 col-lg-2 button-height">
+          <button class="btn-light create-game">Click to experience true serenity</button>
+        </div>
+      </div>
+      <!--  Game Board-->
+        <div class="row hide-game gameboard">
+          <div class="col-xs-10 col-md-10 col-lg-10 col-md-offset-1 col-md-offset-1 col-xs-offset-1">
+            <div class="grid">
+              <div class="row">
+                <div class="col-xs-3 col-md-3 col-lg-3 col-md-offset-2 col-md-offset-2 col-xs-offset-2 game-box" id="zero">
+                </div>
+                <div class="col-xs-3 col-md-3 col-lg-3 game-box" id="one">
+                </div>
+                <div class="col-xs-3 col-md-3 col-lg-3 game-box" id="two">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-3 col-md-3 col-lg-3 col-md-offset-2 col-md-offset-2 col-xs-offset-2 game-box" id="three">
+                </div>
+                <div class="col-xs-3 col-md-3 col-lg-3 game-box" id="four">
+                </div>
+                <div class="col-xs-3 col-md-3 col-lg-3 game-box" id="five">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-3 col-md-3 col-lg-3 col-md-offset-2 col-md-offset-2 col-xs-offset-2 game-box" id="six">
+                </div>
+                <div class="col-xs-3 col-md-3 col-lg-3 game-box" id="seven">
+                </div>
+                <div class="col-xs-3 col-md-3 col-lg-3 game-box" id="eight">
+                </div>
+              </div>
+              <div class="col-xs-4 col-md-4 col-lg-4 col-md-offset-1 col-md-offset-1 col-xs-offset-1">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-2 col-md-2 col-lg-2 col-md-offset-5 col-md-offset-5 col-xs-offset-5">
+          <div class="widen col-xs-12 col-md-12 col-lg-12 col-md-offset-2 col-md-offset-2 col-xs-offset-2">
+          <button class="btn-primary new-game hide-game">New Game</button>
+          <br>
+        </div>
+        </div>
+      </div>
+      <br>
+<footer>
+      <div class="page-footer fake-footer col-xs-12 col-md-12 col-lg-12">
+      		<div class="copyright col-xs-2 col-md-2 col-lg-2">
+      		<p>Copyright 2018</p>
+      		</div>
+      		<p class="message col-xs-4 col-md-4 col-lg-4 col-md-offset-2 col-md-offset-2 col-xs-offset-2">Created with &hearts; by <span class="name">Gordon Farrell</span>
+      		</p>
+      	</div>
+</footer>
+    </body>
+</html>
