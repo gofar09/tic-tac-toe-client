@@ -124,6 +124,10 @@ const secret = function () {
   boardReset()
 }
 
+const signInForm = function () {
+  $('#sign-in-form').show()
+}
+
 // API events below
 const onSignUp = function (event) {
   event.preventDefault()
@@ -198,5 +202,6 @@ module.exports = {
   which,
   indexExport,
   onGetGames,
-  secret
+  secret,
+  signInForm
 }
