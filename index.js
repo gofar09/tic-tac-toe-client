@@ -10,6 +10,7 @@ require('./assets/styles/index.scss')
 
 $(() => {
   $('#sign-up-form').on('submit', events.onSignUp)
+  $('.sign-up-close-button').on('click', events.signUpReset)
 
   $('#sign-in-form').on('submit', events.onSignIn)
   $('#sign-in-button').on('click', events.signInForm)

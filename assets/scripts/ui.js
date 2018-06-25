@@ -3,6 +3,7 @@ const store = require('./store')
 
 const signUpSuccess = function (signUpResponse) {
   $('.failedSignUp').html('You have successfully registered.')
+  $('#sign-up-form')[0].reset()
 }
 
 const signUpError = function () {
@@ -12,14 +13,13 @@ const signUpError = function () {
 const signInSuccess = function (response) {
   store.user = response.user
   $('.failedSignIn').html('You have successfully signed in.')
-  $('#sign-in-button').hide()
-  $('#change-password-button').show()
-  $('#sign-out-button').show()
-  $('#register-button').hide()
+  $('#sign-in-button').toggle()
+  $('#change-password-button').toggle()
+  $('#sign-out-button').toggle()
+  $('#register-button').toggle()
   $('.button-height').delay(2000).fadeIn()
   $('.emailDisplay').html('Signed in as: ' + store.user.email)
   $('#sign-in-form')[0].reset()
-  $('#sign-in-form').hide()
 }
 
 const signInError = function () {

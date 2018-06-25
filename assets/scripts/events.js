@@ -128,6 +128,10 @@ const signInForm = function () {
   $('#sign-in-form').show()
 }
 
+const signUpReset = function () {
+  $('.failedSignUp').text('')
+}
+
 // API events below
 const onSignUp = function (event) {
   event.preventDefault()
@@ -203,5 +207,6 @@ module.exports = {
   indexExport,
   onGetGames,
   secret,
-  signInForm
+  signInForm,
+  signUpReset
 }
