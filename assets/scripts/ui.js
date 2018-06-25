@@ -21,6 +21,7 @@ const signInSuccess = function (response) {
   $('.button-height').delay(2000).fadeIn()
   $('.emailDisplay').html('Signed in as: ' + store.user.email)
   $('#sign-in-form')[0].reset()
+  $('#sign-in-form').hide()
 }
 
 const signInError = function () {

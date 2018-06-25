@@ -13,7 +13,7 @@ $(() => {
   $('.sign-up-close-button').on('click', events.signUpReset)
 
   $('#sign-in-form').on('submit', events.onSignIn)
-  $('#sign-in-button').on('click', events.signInForm)
+  $('.signInClose').on('click', events.signInForm)
 
   $('#change-password-form').on('submit', events.onChangePassword)
 
