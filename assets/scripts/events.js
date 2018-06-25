@@ -130,6 +130,7 @@ const signInForm = function () {
 
 const signUpReset = function () {
   $('.failedSignUp').text('')
+  $('#sign-up-form')[0].reset()
 }
 
 // API events below

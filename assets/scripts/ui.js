@@ -7,7 +7,8 @@ const signUpSuccess = function (signUpResponse) {
 }
 
 const signUpError = function () {
-  $('.failedSignUp').html('Email unavailable.')
+  $('.failedSignUp').html('Email unavailable or password mismatch.')
+  $('#sign-up-form')[0].reset()
 }
 
 const signInSuccess = function (response) {
